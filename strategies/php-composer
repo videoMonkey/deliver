@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+REQUIRED_CONFIGS+=(HOSTS)
+OPTIONAL_CONFIGS+=(OWNER GROUP PERMISSIONS)
+
+composer_install() {
+  status "Installing dependencies via Composer"
+  __remote "
+    set -e
+    source ~/.profile
+    cd $DELIVER_TO $SILENCE
+    composer install $SILENCE
+  "
+}
+
+run() {
+  authorize_hosts
+  init_app_remotely
+  git_push
+  git_reset_remote
+  authorize_remote_hosts
+  git_submodules
+  composer_install
+  permissions
+}
