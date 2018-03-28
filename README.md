@@ -37,7 +37,7 @@ existing ones. [Read more about deliver strategies.][6]
 ### 1.1 Check out deliver into `~/.deliver`.
 
 ```bash
-$ git clone git://github.com/gerhard/deliver.git ~/.deliver
+$ git clone git://github.com/videomonkey/deliver.git ~/.deliver
 ```
 
 ### 1.2 Add `~/.deliver/bin` to your `$PATH` for access to the `deliver` command-line utility
